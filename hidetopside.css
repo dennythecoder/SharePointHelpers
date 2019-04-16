@@ -1,0 +1,14 @@
+#suiteBarDelta, #s4-ribbonrow, #s4-titlerow, #sideNavBox, #DeltaFormDigest{
+display:none !important
+}
+
+#contentBox{
+  margin:0
+}
+#contentRow{
+  padding:0
+}
+#s4-workspace{
+	height:auto;
+	width:auto;
+}
