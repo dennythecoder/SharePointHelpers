@@ -1,0 +1,53 @@
+<!-- 
+  Using this in a folder dialog in SP2013 to create a more apparent "Root" button.
+  There are some breadcrumb solutions out there that might be worth investing for a whole site, but we're limiting scope here to one view.
+ 
+  Usage: Copy & paste the following snippet into your view.  (Note that webpart zones do not like this.  You'll need to create a content editor or paste it into the "advanced" areas of the page.
+ 
+-->
+ 
+ <style>
+	#root-link{
+	   background-color : #17d;
+	   color:white;
+	   font-weight : 600;
+	   font-size :14px;
+	   margin-top :10px;
+	   display:inline-block;
+	   padding:4px;
+
+	}
+
+
+</style> 
+
+<script type="text/javascript">
+    
+(function(){
+    
+  
+function setRootLink(){
+   var id = "root-link";
+   if(document.getElementById(id)) return;
+   var ribbon = document.querySelector('ul[role="tablist"]');
+   var root = document.createElement('a');
+   root.href = document.location.pathname;
+   root.id = id;
+   if(document.location.href.indexOf('IsDlg=1') !== -1){
+       root.href += '?IsDlg=1';
+   }
+   root.textContent = 'Root';
+   ribbon.appendChild(root);
+    
+}
+
+setInterval(setRootLink, 500);
+    
+})()
+
+    
+    
+    
+    
+
+</script>
